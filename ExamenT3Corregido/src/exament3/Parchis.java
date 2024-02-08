@@ -8,24 +8,27 @@ import java.util.Random;
 public class Parchis {
 	public static final int TAM_TABLERO = 10;
 
-	static int dado1, dado2;
+	 private static int dado1;
+	 private static int dado2;
 
-	int fichaJ1=0, fichaJ2=0;
+	int fichaJ1; 
+	int fichaJ2;
 
-	String nomJ1="", nomJ2="";
+	String nomJ1="";
+	String nomJ2="";
 
 	public Parchis() {
 		super();
 	}
 
-	public Parchis(String nomJ1, String nomJ2) {
+	public Parchis(String nomJ1, String nomJ2) { // NOPMD by jlbarrionuevo on 8/2/24 14:31
 		super();
 		this.nomJ1 = nomJ1;
 		this.nomJ2 = nomJ2;
 	}
 
 	public static void tiraDados() {
-		Random rand = new Random();
+		Random rand = new Random(); // NOPMD by jlbarrionuevo on 8/2/24 14:24
 		dado1 = rand.nextInt(1, 7);
 		dado2 = rand.nextInt(1, 7);
 	}
@@ -64,16 +67,16 @@ public class Parchis {
 
 	}
 
-	public void avanzaPosiciones(int jugador) {
-		int tirada = dado1 + dado2;
+	public void avanzaPosiciones(int jugador) { // NOPMD by jlbarrionuevo on 8/2/24 14:31
+		int tirada = dado1 + dado2; // NOPMD by jlbarrionuevo on 8/2/24 14:25
 
-		if (jugador == 1) {
+		if (jugador == 1) { // NOPMD by jlbarrionuevo on 8/2/24 13:52
 			fichaJ1 += tirada;
 
 			if (fichaJ1 > TAM_TABLERO) {
 				fichaJ1 = TAM_TABLERO - (fichaJ1 - TAM_TABLERO);
 			}
-		} else if (jugador == 2) {
+		} else if (jugador == 2) { // NOPMD by jlbarrionuevo on 8/2/24 13:53
 			fichaJ2 += tirada;
 
 			if (fichaJ2 > TAM_TABLERO) {
@@ -95,14 +98,16 @@ public class Parchis {
 
 	public String esGanador() {
 		
+		String nombre;
+		
 		if (fichaJ1 == TAM_TABLERO) {
-			return nomJ1;
+			nombre = nomJ1;
 		} else if (fichaJ2 == TAM_TABLERO) {
-			return nomJ2;
+			nombre = nomJ2;
 		} else {
-			return "";
+			nombre = "";
 		}
-
+ return nombre;
 	}
 
 }
